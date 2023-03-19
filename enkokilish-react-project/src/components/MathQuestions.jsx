@@ -1,6 +1,6 @@
 import React from 'react'
 
-import { useEffect, useState } from "react";
+import { useEffect, useState ,useCallback } from "react";
 
 function MathQuestions () {
   
@@ -8,6 +8,9 @@ function MathQuestions () {
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
     const [score, setScore] = useState(0);
     const [answerSelected, setAnswerSelected] = useState(false); 
+
+
+    //  gets the questions from API endpoint 
 
     useEffect( () => {
 
@@ -35,34 +38,39 @@ function MathQuestions () {
 
   console.log(questions)
 
+  // handles click of the next button 
   const handleNextQuestion = () => {
     setCurrentQuestionIndex((prevIndex) =>
       prevIndex < questions.length - 1 ? prevIndex + 1 : prevIndex
     );
-    setAnswerSelected(false)
-  };
+   
+  }
+
+  // handles click of the next button 
   const handlePrevQuestion = () => {
     setCurrentQuestionIndex((nextIndex) =>
       nextIndex > 0 ? nextIndex - 1 : nextIndex 
     );
-    setAnswerSelected(false)
+   
   };
-
+  
+  // since the signs like apostrophe are written using unicode we shall convert them into the actual symbols by parsing 
 
   const currentQuestion = questions[currentQuestionIndex];
   const parser = new DOMParser();
-  
+  // this handles the decoding of the unicode 
   function decodeHTMLEntities(text) {
     const doc = parser.parseFromString(text, 'text/html');
     return doc.documentElement.textContent;
   }
 
+    // Handles the click of one of the 4 answer boxes 
 
-  const handleAnswerClick = (answer) => {
+    const handleAnswerClick = (answer) => {
+
     const currentQuestion = questions[currentQuestionIndex];
     const isCorrectAnswer = answer === currentQuestion.correct_answer;
   
-    if (!answerSelected) {
     if (isCorrectAnswer) {
       setScore(score + 1);
       // Set the color of the clicked answer to green
@@ -74,15 +82,17 @@ function MathQuestions () {
       document.getElementById(currentQuestion.correct_answer).style.backgroundColor = 'green';
     }
   
-    // Disable all answer buttons
-    document.querySelectorAll('.answer').forEach((button) => {
-      button.disabled = true;
-    });
-  };
+   // Disable all answer div elements 
+  document.querySelectorAll('.answer').forEach((button) => {
+  button.style.pointerEvents = 'none';
+  });
+  
 }
 
-  const getAnswerChoices = () => {
-    if (!answerSelected){
+// uses callback since we want it to occur only when question changes 
+
+const getAnswerChoices = useCallback(() => {
+  if (!answerSelected) {
     const currentQuestion = questions[currentQuestionIndex];
     const answerChoices = [...currentQuestion.incorrect_answers, currentQuestion.correct_answer];
     // Shuffle the answer choices
@@ -90,11 +100,16 @@ function MathQuestions () {
       const j = Math.floor(Math.random() * (i + 1));
       [answerChoices[i], answerChoices[j]] = [answerChoices[j], answerChoices[i]];
     } 
-    return answerChoices;}
-  };
-  
+    return answerChoices;
+  }
+
+}, [currentQuestionIndex, answerSelected, questions]);
+
   return (
     <div className='math-question'>
+      <div className='score-display'>
+        <div> Score : {score} </div>
+        </div>
       <div className='question-container-box'>
         {currentQuestion ? (
           <div key={currentQuestion.id}>
@@ -108,7 +123,7 @@ function MathQuestions () {
               </div>
             ))}
             <div className='navigate-buttons'>
-              <button className='prev-btn' onClick={handlePrevQuestion} disabled={true}>
+              <button className='prev-btn' onClick={handlePrevQuestion} >
                 Prev
               </button>
               <button className='next-btn' onClick={handleNextQuestion}>

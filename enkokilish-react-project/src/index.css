@@ -14,6 +14,13 @@
   height: 40px;
 
 }
+.score-display{
+  background-color: red;
+  width: 100%;
+  padding: 5px;
+  position: fixed;
+  top: 90px;
+}
 .answer {
   background-color: #f2f2f2;
   color: #373737;
@@ -56,6 +63,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  flex-direction: column;
   background-color: #000;
   color: #fff;
   font-family: Arial, sans-serif;
