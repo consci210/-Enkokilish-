@@ -1,13 +1,13 @@
 import React from 'react'
 
-import { useEffect, useState ,useCallback } from "react";
+import { useEffect, useState ,useCallback ,useRef } from "react";
 
 function MathQuestions () {
   
     const [questions, setQuestions] = useState([]);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
-    const [score, setScore] = useState(0);
     const [answerSelected, setAnswerSelected] = useState(false); 
+    const scoreRef = useRef(0);
 
 
     //  gets the questions from API endpoint 
@@ -42,7 +42,9 @@ function MathQuestions () {
   const handleNextQuestion = () => {
     setCurrentQuestionIndex((prevIndex) =>
       prevIndex < questions.length - 1 ? prevIndex + 1 : prevIndex
+
     );
+    
    
   }
 
@@ -65,22 +67,23 @@ function MathQuestions () {
   }
 
     // Handles the click of one of the 4 answer boxes 
-
+    
     const handleAnswerClick = (answer) => {
-
-    const currentQuestion = questions[currentQuestionIndex];
-    const isCorrectAnswer = answer === currentQuestion.correct_answer;
-  
-    if (isCorrectAnswer) {
-      setScore(score + 1);
-      // Set the color of the clicked answer to green
-      document.getElementById(answer).style.backgroundColor = 'green';
-    } else {
-      // Set the color of the clicked answer to red
-      document.getElementById(answer).style.backgroundColor = 'red';
-      // Set the color of the correct answer to green
-      document.getElementById(currentQuestion.correct_answer).style.backgroundColor = 'green';
-    }
+       
+        const currentQuestion = questions[currentQuestionIndex];
+        const isCorrectAnswer = answer === currentQuestion.correct_answer;
+      
+        if (isCorrectAnswer) {
+         
+          // Set the color of the clicked answer to green
+          document.getElementById(answer).style.backgroundColor = 'green';
+          scoreRef.current += 1;
+        } else {
+          // Set the color of the clicked answer to red
+          document.getElementById(answer).style.backgroundColor = 'red';
+          // Set the color of the correct answer to green
+          document.getElementById(currentQuestion.correct_answer).style.backgroundColor = 'green';
+        }
   
    // Disable all answer div elements 
   document.querySelectorAll('.answer').forEach((button) => {
@@ -92,7 +95,8 @@ function MathQuestions () {
 // uses callback since we want it to occur only when question changes 
 
 const getAnswerChoices = useCallback(() => {
-  if (!answerSelected) {
+  
+  if (!answerSelected ) {
     const currentQuestion = questions[currentQuestionIndex];
     const answerChoices = [...currentQuestion.incorrect_answers, currentQuestion.correct_answer];
     // Shuffle the answer choices
@@ -108,7 +112,7 @@ const getAnswerChoices = useCallback(() => {
   return (
     <div className='math-question'>
       <div className='score-display'>
-        <div> Score : {score} </div>
+        <div> Score : {scoreRef.current} </div>
         </div>
       <div className='question-container-box'>
         {currentQuestion ? (

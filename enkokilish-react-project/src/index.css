@@ -15,11 +15,12 @@
 
 }
 .score-display{
-  background-color: red;
-  width: 100%;
+  font-weight: 700;
+  width: 20%;
   padding: 5px;
   position: fixed;
   top: 90px;
+  right : 0 ;
 }
 .answer {
   background-color: #f2f2f2;
