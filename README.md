@@ -1,6 +1,9 @@
 # 🌟 Enkokilish 🌟
 Enkokilish is a fun and educational trivia game built with React. This app allows users to select topics they want to be quizzed on and test their IQ and general knowledge.
 
+![image](https://user-images.githubusercontent.com/106769498/226217028-123a081e-a516-4cc5-8bf7-06221e75a9e8.png)
+
+
 ## 💡 Inspiration
 I wanted to create an app that would engage users in a fun and interactive way while still providing valuable educational content. I believe that learning should be fun, and Enkokilish does just that!
 
