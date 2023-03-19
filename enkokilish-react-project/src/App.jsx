@@ -2,13 +2,15 @@ import { useState , useEffect } from "react";
 import MathQuestions from "./components/MathQuestions";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
+import HomePage from "./components/HomePage";
 
 function App() {
 
     return (
-      <div>
+      <div className="app">
           <Header/>
-          <MathQuestions />
+          <HomePage />
+          {/* <MathQuestions /> */}
           <Footer/>
       </div>
     );

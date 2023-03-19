@@ -1,3 +1,120 @@
+#root{
+  width: 100%;
+  height: 100%;
+  margin: 0;
+}
+*{
+
+  margin: 0;
+}
+.homepage{
+  height: 90vh;
+  width: 100%;
+  background-color: #000;
+  color:white;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.left-homepage{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  justify-content: flex-start;
+
+}
+.homepage-title{
+  font-size: 180px;
+
+}
+.kilish{
+  position: relative;
+  color: rgb(255, 145, 0); /* Set the color to orange */
+  left: 60px;
+  bottom: 60px;
+}
+.homepage-title {
+  font-weight: bold; /* Make the text bold */
+  text-align: center; /* Center the text */
+  text-transform: uppercase; /* Convert the text to uppercase */
+  letter-spacing: 0.1em; /* Add a bit of extra space between letters */
+}
+
+.enko {
+  color: white; /* Set the color to white */
+  text-shadow: 2px 2px 4px orange; /* Add an orange shadow */
+  animation: glow 1s ease-in-out infinite alternate;
+}
+
+
+
+@keyframes glow {
+  from {
+    text-shadow: 2px 2px 4px orange;
+  }
+  to {
+    text-shadow: 4px 4px 8px orange;
+  }
+}
+
+
+.mellow-logo{
+  width: 40px;
+  border-radius: 50%;
+}
+.enkokilish{
+  width: 500px;
+  border-radius: 25%;
+  padding: 3rem;
+}
+
+.motto-english {
+  position: relative;
+  bottom: 3rem;
+  font-weight: bold;
+  font-size: 1.3em; /* Slightly larger than default size */
+  color: orange;
+  padding-left: 3rem;
+  display: flex;
+  
+}
+
+.motto-amh {
+  font-weight: bold;
+  font-size: 1.2em; /* Slightly larger than default size */
+  color: white;
+  position: relative;
+  bottom: 3rem;
+}
+
+.get-started button {
+  background-color: orange;
+  border: none;
+  padding: 10px 20px;
+  color: white;
+  font-weight: bold;
+  font-size: 1.1em; /* Slightly larger than default size */
+  text-transform: uppercase;
+  margin-top: 1rem;
+  border-radius: 2rem;
+  position: relative;
+  bottom: 3rem;
+}
+
+.get-started button:hover {
+  background-color: white;
+  color: rgb(255, 98, 0);
+  border: 2px solid orange;
+}
+
+.get-started button:focus {
+  outline: none;
+}
+
+
+
 .question-container-box {
   background-color: #fff;
   border-radius: 10px;
@@ -73,6 +190,42 @@
 
 
 .header , .footer{
-  background-color: #3e8e41;
-  height: 10vh;
+  border-bottom: 5px #e6e6e6 ;
+  background-color: #000;
+  width: 100%;
+  display: flex;
+  align-items: center;
 }
+.footer {
+  background-color: #000;
+  padding: 2rem 0;
+  height: 15px;
+  position: fixed;
+  bottom: 0;
+}
+.footer a:hover{
+  color: white;
+}
+.footer a{
+  color: orange;
+}
+
+.footer-content {
+  
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer-content p {
+  margin: 0.5rem 0;
+  font-size: 0.9rem;
+  color: whitesmoke
+ 
+}
+
+
+
