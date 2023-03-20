@@ -118,7 +118,9 @@ return (
           <p>Your total score is:</p>
           <h3>{scoreRef.current}</h3>
         </div>
-      </div>
+        
+    </div>
+      
     ) : (
       <div className='question-container-box'>
         {currentQuestion ? (

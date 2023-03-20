@@ -9,6 +9,26 @@
   margin: 0;
 }
 
+.nav-bar ul{
+  color: white;
+  display: flex;
+  margin-right: 5rem;
+
+}
+.nav-bar li {
+  margin: 2rem;
+  list-style: none;
+}
+.nav-bar li:hover {
+  color: orangered;
+}
+
+.header{
+  display: flex;
+  justify-content: space-between;
+ 
+}
+
 
 .homepage{
   height: 90vh;
@@ -47,7 +67,7 @@
 
 .enko {
   color: white; /* Set the color to white */
-  text-shadow: 2px 2px 4px orange; /* Add an orange shadow */
+  text-shadow: 2px 2px 4pxorangered; /* Add an orange shadow */
   animation: glow 1s ease-in-out infinite alternate;
 }
 
@@ -55,10 +75,10 @@
 
 @keyframes glow {
   from {
-    text-shadow: 2px 2px 4px orange;
+    text-shadow: 2px 2px 4pxorangered;
   }
   to {
-    text-shadow: 4px 4px 8px orange;
+    text-shadow: 4px 4px 8pxorangered;
   }
 }
 
@@ -78,7 +98,7 @@
   bottom: 3rem;
   font-weight: bold;
   font-size: 1.3em; /* Slightly larger than default size */
-  color: orange;
+  color:orangered;
   padding-left: 3rem;
   display: flex;
   
@@ -93,7 +113,7 @@
 }
 
 .get-started button {
-  background-color: orange;
+  background-color:orangered;
   border: none;
   padding: 10px 20px;
   color: white;
@@ -109,7 +129,7 @@
 .get-started button:hover {
   background-color: white;
   color: rgb(255, 98, 0);
-  border: 2px solid orange;
+  border: 2px solidorangered;
 }
 
 .get-started button:focus {
@@ -211,7 +231,7 @@
   color: white;
 }
 .footer a{
-  color: orange;
+  color:orangered;
 }
 
 .footer-content {
