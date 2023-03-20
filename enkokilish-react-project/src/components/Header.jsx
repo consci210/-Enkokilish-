@@ -1,5 +1,6 @@
 import React from 'react';
 import mellow from '../images/mellow-logo.png';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
   return (
@@ -9,10 +10,10 @@ const Header = () => {
       </div>
       <nav className='nav-bar'>
          <ul>
-          <li>Home </li>
-          <li>Contact</li>
-          <li>About</li>
-          <li>Login/SignUp</li>
+          <li> <Link className="nav-bar-link" to={"/"}>Home</Link>    </li>
+          <li>  <Link className="nav-bar-link" to={"contact"}>Contact</Link>  </li>
+          <li>  <Link className="nav-bar-link" to={"about"}>About</Link>  </li>
+          <li>  <Link className="nav-bar-link" to={"login"}> Login/SignUp</Link> </li>
          </ul>
       </nav>
      

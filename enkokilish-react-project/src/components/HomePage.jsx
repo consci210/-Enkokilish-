@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import enkokilish from '../images/enkokilish-two.png'
 const HomePage = () => {
   return (
@@ -15,7 +16,7 @@ const HomePage = () => {
            
         </div>
         <div className='motto-amh'> እየተዝናኑ የእውቀትዎን ጥግ ይፈትሹ </div>
-        <div className='get-started'> <button> Get Started /ይጀምሩ</button></div>
+        <div className='get-started'> <Link to={'topic'}><button> Get Started /ይጀምሩ</button></Link></div>
     </div>
     <div className='right-homepage'><img className='enkokilish' src={enkokilish} alt="" /></div>
     </div>

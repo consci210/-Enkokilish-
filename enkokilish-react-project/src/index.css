@@ -15,11 +15,15 @@
   margin-right: 5rem;
 
 }
-.nav-bar li {
+.nav-bar-link {
+  color: white;
+  text-decoration: none;
+}
+.nav-bar li  {
   margin: 2rem;
   list-style: none;
 }
-.nav-bar li:hover {
+.nav-bar-link:hover {
   color: orangered;
 }
 
