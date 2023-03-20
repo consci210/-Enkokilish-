@@ -2,7 +2,7 @@ import React from 'react'
 
 import { useEffect, useState ,useCallback ,useRef } from "react";
 
-function MathQuestions () {
+function ComputerQuestions () {
   
     const [questions, setQuestions] = useState([]);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -18,7 +18,7 @@ function MathQuestions () {
 
       try {
         const response = await fetch(
-          "https://opentdb.com/api.php?amount=10&category=19&difficulty=hard&type=multiple"
+            "https://opentdb.com/api.php?amount=10&category=18&type=multiple"
         );
         const data = await response.json();
         const questionsWithIds = data.results.map((question, index) => {
@@ -109,17 +109,11 @@ const getAnswerChoices = useCallback(() => {
 
 }, [currentQuestionIndex, answerSelected, questions]);
 
-return (
-  <div className='math-question '>
-    {currentQuestionIndex === questions.length-1 ? (
+  return (
+    <div className='math-question'>
       <div className='score-display'>
-        <div className='score-message'>
-          <h2>Good Job!</h2>
-          <p>Your total score is:</p>
-          <h3>{scoreRef.current}</h3>
+        <div> Score : {scoreRef.current} </div>
         </div>
-      </div>
-    ) : (
       <div className='question-container-box'>
         {currentQuestion ? (
           <div key={currentQuestion.id}>
@@ -129,7 +123,7 @@ return (
 
             {getAnswerChoices().map((answerChoice, index) => (
               <div className='answer' key={index} id={answerChoice} onClick={() => handleAnswerClick(answerChoice)}>
-                 {decodeHTMLEntities(answerChoice)}
+                {decodeHTMLEntities(answerChoice)}
               </div>
             ))}
             <div className='navigate-buttons'>
@@ -140,16 +134,13 @@ return (
                 Next
               </button>
             </div>
-           
           </div>
         ) : (
           <div>Loading your questions. </div>
         )}
       </div>
-    )}
-  </div>
-);
-
+    </div>
+  );
 }
 
-export default MathQuestions 
+export default ComputerQuestions 

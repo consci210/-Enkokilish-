@@ -7,7 +7,7 @@ return (
   <div className='footer'>
     <div className='footer-content'>
       <p>Developed by Mellow Stacks</p>
-      <p>Contact us: <a href='mailto:consci210@gmail.com'>consci210@gmail.com</a></p>
+      <p>Contact us: <a href='mailto:mellowstacks210@gmail.com'>mellowstacks210@gmail.com</a></p>
     </div>
   </div>
 );
