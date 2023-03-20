@@ -58,7 +58,7 @@
 }
 .kilish{
   position: relative;
-  color: rgb(255, 145, 0); /* Set the color to orange */
+  color: orangered ;
   left: 60px;
   bottom: 60px;
 }
@@ -79,10 +79,10 @@
 
 @keyframes glow {
   from {
-    text-shadow: 2px 2px 4pxorangered;
+    text-shadow: 2px 2px 4px orangered;
   }
   to {
-    text-shadow: 4px 4px 8pxorangered;
+    text-shadow: 4px 4px 8px orangered;
   }
 }
 
@@ -227,7 +227,7 @@
   background-color: #000;
   padding: 2rem 0;
   height: 35px;
-  position: fixed;
+  position: absolute;
   bottom: 0;
 
 }

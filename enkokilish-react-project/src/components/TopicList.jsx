@@ -1,8 +1,11 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 const TopicList = () => {
   return (
-    <div>TopicList</div>
+    <div className='homepage'>
+      Which Topic do you wanna be challenged on ?
+    </div>
   )
 }
 

@@ -1,9 +1,10 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
+import TopicList from './TopicList';
 import enkokilish from '../images/enkokilish-two.png'
 const HomePage = () => {
   return (
-    
+   <>
     <div className='homepage'>
     <div className='left-homepage'>
         <div className='homepage-title'>
@@ -20,6 +21,9 @@ const HomePage = () => {
     </div>
     <div className='right-homepage'><img className='enkokilish' src={enkokilish} alt="" /></div>
     </div>
+    <TopicList/>
+  </>
+   
   )
 }
 
