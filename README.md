@@ -34,4 +34,4 @@ I welcome contributions to Enkokilish! If you'd like to make a contribution, ple
 Enkokilish is licensed under the MIT License.
 
 ## 📱 Contact Me
-If you have any questions or suggestions, feel free to reach out to me at consci210@gmail.com.
+If you have any questions or suggestions, feel free to reach out to me at mellowstacks210@gmail.com.
