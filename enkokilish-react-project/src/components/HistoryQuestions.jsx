@@ -2,7 +2,7 @@ import React from 'react'
 
 import { useEffect, useState ,useCallback ,useRef } from "react";
 
-function MathQuestions () {
+function HistoryQuestions () {
     
     const [questions, setQuestions] = useState([]);
     const [currentQuestionIndex, setCurrentQuestionIndex] = useState(0);
@@ -19,7 +19,7 @@ function MathQuestions () {
       try {
         
         const response = await fetch(
-          "https://opentdb.com/api.php?amount=10&category=19&difficulty=hard&type=multiple"
+         " https://opentdb.com/api.php?amount=10&category=23&type=multiple"
         );
         const data = await response.json();
         const questionsWithIds = data.results.map((question, index) => {
@@ -156,4 +156,4 @@ return (
 
 }
 
-export default MathQuestions 
+export default HistoryQuestions 
