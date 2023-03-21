@@ -3,12 +3,13 @@
   width: 100%;
   height: 100%;
   margin: 0;
+  background-color: #000;
  
 }
 *{
-
   margin: 0;
 }
+
 
 .topics{
   background-image: url('./images/sea-mid.jpg');
@@ -387,4 +388,159 @@
   color: white;
   font-size: 5rem;
   font-weight: bold;
+}
+
+
+.about-container {
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url('../src/images/sea-mid.jpg');
+  background-size:contain;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.about-text {
+
+  text-align: center;
+  color: white;
+  
+}
+
+.about-text h1 {
+  font-size: 48px;
+  margin-bottom: 20px;
+  text-shadow: 0.1rem -0.1rem rgba(130, 111, 0, 0.744);
+}
+
+.about-text p {
+  background-color: #2b2b2bd1;
+  font-size: 24px;
+  line-height: 1.5;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  animation-name: fadeInUp;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
+}
+.Info-container {
+  margin-top: 3rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: black;
+}
+
+.contactForm {
+  width: 100%;
+  max-width: 500px;
+  background-color: #f5f5f5;
+  padding: 50px;
+  margin-bottom: 50px;
+}
+
+.contactForm h3 {
+  margin-bottom: 30px;
+  font-size: 24px;
+  font-weight: 700;
+  text-align: center;
+  color: #333;
+}
+
+.contactForm input,
+.contactForm textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+}
+
+.contactForm input:focus,
+.contactForm textarea:focus {
+  outline: none;
+  box-shadow: 0px 0px 5px #333;
+}
+
+.contactForm button[type="submit"] {
+  display: block;
+  margin: 0 auto;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: uppercase;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+}
+
+.contactForm button[type="submit"]:hover {
+  background-color: #555;
+}
+
+.contactInfo {
+  
+  display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  background-image: url('../src/images/world.jpg');
+  background-position: center;
+}
+
+.contactInfo .box {
+  width: calc(33.33% - 20px);
+  background-color: #f5f5f5;
+  margin: 10px;
+  padding: 30px;
+  border-radius: 5px;
+  text-align: center;
+  min-height: 100px;
+  min-width: 50px;
+}
+
+.contactInfo .box .icon {
+  font-size: 48px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.contactInfo .box .text {
+  font-size: 16px;
+  font-weight: 400;
+  color: #333;
+}
+
+.contactInfo .box .text h3 {
+  margin-bottom: 10px;
+  font-size: 24px;
+  font-weight: 700;
+  color: #333;
+}
+
+.contactInfo .box .text p {
+  margin: 0;
+  padding: 0;
+  color: #333;
+}
+
+@media only screen and (max-width: 768px) {
+  .contactInfo .box {
+    width: 100%;
+    margin: 10px 0;
+  }
 }
