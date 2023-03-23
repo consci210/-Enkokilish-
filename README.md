@@ -1,4 +1,4 @@
-##This project is still under development 
+## This project is still under development 
 
 # 🌟 Enkokilish 🌟
 Enkokilish is a fun and educational trivia game built with React. This app allows users to select topics they want to be quizzed on and test their IQ and general knowledge.
