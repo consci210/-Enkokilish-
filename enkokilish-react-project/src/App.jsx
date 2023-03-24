@@ -13,12 +13,13 @@ import HistoryQuestions from "./components/HistoryQuestions";
 import GeneralKnowledge from "./components/GeneralKnowledge";
 import GeographyQuestions from "./components/GeographyQuestions";
 import SportQuestions from "./components/SportQuestions";
-
+import { DataProvider } from "./context/DataContext";
 
 function App() {
 
     return (
       <div className="app">
+         <DataProvider>
           <Header/>
           <Routes>  
               <Route path="/" element={ <HomePage />}/> 
@@ -32,9 +33,9 @@ function App() {
               <Route path="history" element={  <HistoryQuestions/>  }/> 
               <Route path="sports" element={<SportQuestions />  }/> 
               <Route path="general-knowledge" element={<GeneralKnowledge/>} /> 
-          
           </Routes>
           <Footer/>
+          </DataProvider>
       </div>
     );
     
