@@ -127,6 +127,9 @@ return (
       <div className='question-container-box'>
         {currentQuestion ? (
           <div key={currentQuestion.id}>
+            <div className='score-display'>
+               <div> Score : {scoreRef.current} </div>
+           </div>
             <div className='question'>
               Question {currentQuestion.id} : {decodeHTMLEntities(currentQuestion.question)}
             </div>

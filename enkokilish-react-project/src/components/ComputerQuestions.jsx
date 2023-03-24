@@ -108,22 +108,32 @@ const getAnswerChoices = useCallback(() => {
   }
 
 }, [currentQuestionIndex, answerSelected, questions]);
-
-  return (
-    <div className='math-question'>
+return (
+  <div className='math-question '>
+    {currentQuestionIndex === questions.length-1 ? (
       <div className='score-display'>
-        <div> Score : {scoreRef.current} </div>
+        <div className='score-message'>
+          <h2>Good Job!</h2>
+          <p>Your total score is:</p>
+          <h3>{scoreRef.current}</h3>
         </div>
+        
+    </div>
+      
+    ) : (
       <div className='question-container-box'>
         {currentQuestion ? (
           <div key={currentQuestion.id}>
+            <div className='score-display'>
+               <div> Score : {scoreRef.current} </div>
+           </div>
             <div className='question'>
               Question {currentQuestion.id} : {decodeHTMLEntities(currentQuestion.question)}
             </div>
 
             {getAnswerChoices().map((answerChoice, index) => (
               <div className='answer' key={index} id={answerChoice} onClick={() => handleAnswerClick(answerChoice)}>
-                {decodeHTMLEntities(answerChoice)}
+                 {decodeHTMLEntities(answerChoice)}
               </div>
             ))}
             <div className='navigate-buttons'>
@@ -134,13 +144,15 @@ const getAnswerChoices = useCallback(() => {
                 Next
               </button>
             </div>
+           
           </div>
         ) : (
           <div>Loading your questions. </div>
         )}
       </div>
-    </div>
-  );
+    )}
+  </div>
+);
 }
 
 export default ComputerQuestions 
