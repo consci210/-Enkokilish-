@@ -67,7 +67,7 @@ export const DataProvider = ({children}) => {
     
     }
 
-// uses callback since we want it to occur only when question changes 
+    // uses callback since we want it to occur only when question changes 
 
     const getAnswerChoices = useCallback(() => {
     
