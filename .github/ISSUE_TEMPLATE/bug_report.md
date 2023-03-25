@@ -1,38 +1,34 @@
----
-name: Bug report
-about: Create a report to help us improve
-title: ''
-labels: ''
-assignees: ''
+🐛 Bug Report
 
----
+Thank you for taking the time to report a bug in our application! Please fill out the form below to help us improve our app. 🙏
 
-**Describe the bug**
-A clear and concise description of what the bug is.
+- Description
+Please provide a clear and concise description of the bug you encountered.
 
-**To Reproduce**
-Steps to reproduce the behavior:
-1. Go to '...'
-2. Click on '....'
-3. Scroll down to '....'
-4. See error
+- Steps to Reproduce
+Please provide step-by-step instructions to help us reproduce the issue you encountered.
+    - 1.Go to '...' <br/>
+     2.Click on '....'   <br/>
+     3.Scroll down to '....'   <br/>
+     4.See error    <br/>
+     5.Expected Behavior    <br/>
+     Please describe what you expected to happen instead of the bug.
 
-**Expected behavior**
-A clear and concise description of what you expected to happen.
 
-**Screenshots**
-If applicable, add screenshots to help explain your problem.
+- Screenshots
+If applicable, please attach screenshots to help illustrate the issue you encountered.
 
-**Desktop (please complete the following information):**
- - OS: [e.g. iOS]
- - Browser [e.g. chrome, safari]
- - Version [e.g. 22]
-
-**Smartphone (please complete the following information):**
- - Device: [e.g. iPhone6]
- - OS: [e.g. iOS8.1]
- - Browser [e.g. stock browser, safari]
- - Version [e.g. 22]
-
-**Additional context**
-Add any other context about the problem here.
+- Device Information
+Please provide information about the device and browser you are using:
+    - Desktop:
+       - Operating System: [e.g. Windows, macOS]
+       - Browser: [e.g. Chrome, Firefox]
+       - Version: [e.g. 89.0.4389.82]
+    - Smartphone:
+       - Device: [e.g. iPhone 12, Samsung Galaxy S21]
+       - Operating System: [e.g. iOS 14, Android 11]
+       - Browser: [e.g. Safari, Chrome]
+       - Version: [e.g. 14.4.2]
+   
+- Additional Information
+Please provide any additional information or context that you think may be helpful in understanding and resolving the issue.
