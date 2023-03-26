@@ -1,13 +1,15 @@
 
-#root{
+#root {
   width: 100%;
   height: 100%;
   margin: 0;
   background-color: #000;
  
 }
-*{
+*, *::before, *::after{
   margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 
@@ -105,7 +107,7 @@
   bottom: 60px;
 }
 .homepage-title {
-  font-weight: bold; /* Make the text bold */
+  font-weight: bold; /* Make the text bold
   text-align: center; /* Center the text */
   text-transform: uppercase; /* Convert the text to uppercase */
   letter-spacing: 0.1em; /* Add a bit of extra space between letters */
@@ -113,7 +115,7 @@
 
 .enko {
   color: white; /* Set the color to white */
-  text-shadow: 2px 2px 4pxorangered; /* Add an orange shadow */
+  text-shadow: 2px 2px 4px orangered; /* Add an orange shadow */
   animation: glow 1s ease-in-out infinite alternate;
 }
 
@@ -542,5 +544,217 @@
   .contactInfo .box {
     width: 100%;
     margin: 10px 0;
+  }
+} 
+
+/* Landing page CSS code begins here */
+:root {
+  --nav-background: rgb(0, 0, 0);
+  --background: orangered;
+}
+
+#intro {
+  background-color: var(--nav-background);
+}
+
+.firstpage {
+  width: 75%;
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  padding-top: 4em;
+  font-size: 1.2rem;
+  gap: 2em;
+}
+
+.heading {
+  font-size: 2rem; 
+  /* this is mobile view */
+  /* 4rem for desktop and 3rem for tablet */
+}
+
+#head-orange {
+  color: var(--background);
+}
+#head-white, hr, #white {
+  color: white;
+}
+p.para {
+  color: var(--background);
+  margin: 2em auto;
+}
+
+#get-started {
+  background-color: var(--background);
+  color: white;
+  padding: 1em 2em;
+  border-radius: 10px;
+  font-size: 1rem;
+}
+#black {
+  color: var(--nav-background);
+}
+
+.image {
+  max-width: 450px;
+  min-width: 150px;
+}
+.image img {
+  width: 100%;
+}
+
+
+
+/* navbar code begins here */
+
+header {
+  background: var(--nav-background);
+  text-align: center;
+  position: fixed;
+  width: 100%;
+  z-index: 999;
+  padding: 0.5em 0;
+}
+.icon {
+  display: none;
+}
+
+#extra h1 {
+  visibility: hidden;
+}
+
+nav {
+  position: absolute;
+  text-align: right;
+  top: 100%;
+  right: 0;
+  background-color: var(--nav-background);
+  width: 100%;
+  /* display: none; */
+  transform-origin: top;
+  transform: scale(1, 0);
+  transition: transform 400ms ease-in-out
+}
+
+nav ul {
+  list-style: none;
+}
+
+nav li {
+  margin-bottom: 1em;
+  margin-right: 1em;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+  font-size: 1.2rem;
+  cursor: pointer;
+  text-transform: uppercase;
+  opacity: 0;
+  transition: opacity 150ms ease-in-out;
+}
+
+nav a:hover {
+  background-color: salmon;
+}
+
+.nav-toggle {
+  display: none;
+} 
+
+.nav-toggle-label {
+  position: absolute;
+  top: 0;
+  right: 0;
+  margin-right: 1em;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.nav-toggle:checked ~ nav {
+  /* display: block; */
+  transform: scale(1, 1);
+}
+
+.nav-toggle:checked ~ nav a {
+  opacity: 1;
+  transition: opacity 250ms ease-in-out 250ms;
+}
+
+
+@media(min-width: 641px) and (max-width: 1007px) {
+  .nav-toggle-label {
+    display: none;
+  }
+
+  #extra h1 {
+    color: white;
+    text-align: left;
+  }
+
+  header {
+    display: flex;
+    /* border: 2px solid yellow; */
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  nav {
+    all: unset;
+  }
+
+  nav a {
+    opacity: 1;
+  }
+
+  nav ul {
+    margin-right: 1em;
+    display: flex;
+    flex-direction: row;
+    gap: 2em;
+    /* border: 1px solid red; */
+  }
+
+  nav li {
+    margin: 0;
+  }
+
+  .firstpage {
+    flex-direction: row;
+    gap: 4em;
+    padding: 25vh 0;
+  }
+
+  .heading {
+    font-size: 3rem;
+  }
+}
+
+@media(min-width: 1008px) {
+  #extra, nav, .nav-toggle-label {
+    display: none;
+  }
+
+  .firstpage {
+    flex-direction: row;
+    gap: 4em;
+    padding: 20vh 0;
+  }
+
+  .heading {
+    font-size: 4rem;
+  }
+
+  .icon {
+    position: absolute;
+    right: 0%;
+    margin-right: 1em;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 1em;
+    background-color: black;
+    max-height: 150px;
   }
 }

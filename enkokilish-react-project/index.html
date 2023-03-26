@@ -4,10 +4,47 @@
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="src/index.css">
+    <script src="https://kit.fontawesome.com/bd4d4ead53.js" crossorigin="anonymous"></script>
     <title>እንቆቅልሽ - Enkokilish</title>
   </head>
   <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
+    <header>
+      <!-- <h1>Logo</h1> -->
+      <div id="extra"><h1>Logo</h1></div>
+      <input type="checkbox" class="nav-toggle" id="nav-toggle">
+      <nav>
+          <ul>
+              <li><a href="#">Home</a></li>
+              <li><a href="#">About</a></li>
+              <li><a href="#">Contact</a></li>
+          </ul>
+      </nav>
+      <label for="nav-toggle" class="nav-toggle-label">
+          <span><i class="fa-sharp fa-solid fa-bars" style="background-color: white;"></i></span>
+      </label>
+      <div class="icon">
+        <i class="fa-solid fa-user fa-2xl" style="color: white;"></i>
+        <span style="color: white;">User</span>
+      </div>
+  </header>
+    <section id="intro">
+      <main class="firstpage">
+        <div class="text">
+          <div class="heading">
+            <h1 id="head-white">እንቆ</h1>
+            <h1 id="head-orange">ቅልሽ</h1>
+          </div>
+          <hr>
+          <p class="para">Challenge your mind and test your limits with our interactive IQ and knowledge-testing web app! <br><span id="white">እየተዝናኑ የእውቀትዎን ጥግ ይፈትሹ</span></p>
+          <button id="get-started">Get Started <span id="black">/ይጀምሩ</span></button>
+        </div>
+    
+        <div class="image">
+          <img src="./src/images/enkokilish-two.png" alt="">
+        </div>
+      </main>
+    </section> 
+    <script type="module" src="enkokilish-react-project/src/main.jsx"></script>
   </body>
 </html>
