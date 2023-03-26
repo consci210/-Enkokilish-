@@ -587,7 +587,7 @@ p.para {
 #get-started {
   background-color: var(--background);
   color: white;
-  padding: 1em 2em;
+  padding: 0.8em 1.5em;
   border-radius: 10px;
   font-size: 1rem;
 }
@@ -601,6 +601,10 @@ p.para {
 }
 .image img {
   width: 100%;
+}
+
+.para, #get-started {
+  text-align: center;
 }
 
 
