@@ -13,7 +13,7 @@ const Header = () => {
           <li> <Link className="nav-bar-link" to={"/"}>Home</Link>    </li>
           <li>  <Link className="nav-bar-link" to={"about"}>About</Link>  </li>
           <li>  <Link className="nav-bar-link" to={"contact"}>Contact</Link>  </li>
-       
+          <li>  <Link className="nav-bar-link" to={"/login"}>Login/Sign-Up <i className='bi bi-person'></i></Link>  </li>
          </ul>
       </nav>
      
