@@ -544,3 +544,19 @@
     margin: 10px 0;
   }
 }
+
+
+/* login and register form styles */
+.log-forms{
+  color: #333;
+}
+.log-forms:hover{
+  color: orangered;
+  text-decoration: underline;
+}
+.forms form .head{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}

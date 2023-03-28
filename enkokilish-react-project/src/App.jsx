@@ -14,6 +14,7 @@ import GeneralKnowledge from "./components/GeneralKnowledge";
 import GeographyQuestions from "./components/GeographyQuestions";
 import SportQuestions from "./components/SportQuestions";
 import { DataProvider } from "./context/DataContext";
+import SignUp from "./components/SignUp";
 
 function App() {
 
@@ -27,7 +28,8 @@ function App() {
               <Route path="/math" element={<MathQuestions />  }/> 
               <Route path="about" element={ <About />  }/> 
               <Route path="contact" element={  <Contact/>  }/> 
-              <Route path="login" element={<Login />  }/> 
+              <Route path="/login" element={<Login />  }/>
+              <Route path="/signup" element={<SignUp />  }/> 
               <Route path="topic" element={<TopicList/>} /> 
               <Route path="geography" element={ <GeographyQuestions />  }/> 
               <Route path="history" element={  <HistoryQuestions/>  }/> 
