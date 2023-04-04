@@ -14,7 +14,7 @@ const Login = () => {
 
   return (
     <div style={{ minHeight: "85vh"}} className='forms'>
-      <div className="Info-container">
+      <div className="Info-container login-form">
         <div className="contactForm">
           <form
             onSubmit={handleSubmit}
