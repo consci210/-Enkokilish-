@@ -857,7 +857,12 @@
   height: 30px;
 }
 .user-logo{
-  position: fixed;
+  cursor: pointer;
   right: 0;
   top: 0;
+}
+.user-display{
+  color: chocolate;
+  padding:0 2rem ;
+  margin: 0 2rem;
 }

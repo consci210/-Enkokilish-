@@ -2,31 +2,46 @@ import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
 import googleIcon from "../assets/google.png";
 import { auth, googleProvider } from "../config/firebase";
-import {
-  createUserWithEmailAndPassword,
-  signInWithPopup,
-} from "firebase/auth";
+import {signInWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+
+
 
 const Login = () => {
+
+
   const navigate = useNavigate()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isSuccess, setIsSuccess] = useState(false);
+  const [isError, setIsError] = useState(false);
 
-
+  
+  // handles login 
   const handleSubmit = async () => {
     try {
-      await createUserWithEmailAndPassword(auth, email, password);
+      await signInWithEmailAndPassword(auth, email, password);
+      setIsSuccess(true);
+      setIsError(false);
+      navigate("/");
     } catch (err) {
       console.error(err);
-    } ;
-  }
+      setIsSuccess(false);
+      setIsError(true);
+    }
+  };
 
 
+  // handles login with google 
   const signInWithGoogle = async () => {
     try {
       await signInWithPopup(auth, googleProvider);
+      setIsSuccess(true);
+      setIsError(false);
+      navigate("/")
     } catch (err) {
       console.error(err);
+      setIsSuccess(false);
+      setIsError(true);
     }
   };
 
@@ -77,7 +92,23 @@ const Login = () => {
               <img src={googleIcon}  alt="Google Icon" className="google-icon" />
               Continue with Google
             </button>
-          
+            {isSuccess && (
+            <div
+              style={{
+                backgroundColor: "green",
+                color: "white",
+                padding: "10px",
+                marginTop: "10px",
+              }}
+            >
+              Successfully logged in!
+            </div>
+          )}
+          {isError && (
+            <div style={{ backgroundColor: "red", color: "white", padding: "10px", marginTop: "10px" }}>
+            Login failed!
+           </div>
+              )}
         </div>
       </div>
     </div>

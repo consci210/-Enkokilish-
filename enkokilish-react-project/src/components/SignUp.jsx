@@ -5,49 +5,59 @@ import { auth, googleProvider } from "../config/firebase";
 import { createUserWithEmailAndPassword, signInWithPopup} from "firebase/auth";
 
 
-
 export default function SignUp() {
   
+
+
     const navigate = useNavigate()
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-
+    const [isSuccess, setIsSuccess] = useState(false);
+    const [isError, setIsError] = useState(false);
     
-      const signUp = async () => {
-        console.log(email , password )
-        if (password !== confirmPassword) {
-          alert("Passwords do not match!")
-          throw Error("re-check passwords")
-        }
-        try {
-          await createUserWithEmailAndPassword(auth, email, password);  
-          
-        
-       } catch (err) {
-         console.error(err);
-       }
-     };
 
+
+      // handles new account creation 
+        const signUp = async () => {
+          
+            if (password !== confirmPassword) {
+              alert("Passwords do not match!")
+              throw Error("re-check passwords")   
+          }
+          try {
+            await createUserWithEmailAndPassword(auth, email, password);  
+            setIsSuccess(true);
+            setIsError(false);
+            navigate("/");
+          } catch (err) {
+            console.error(err);
+            setIsSuccess(false);
+            setIsError(true);
+          }
+      };
+
+     // handles creating account with google 
      const signInWithGoogle = async () => {
       try {
         await signInWithPopup(auth, googleProvider);
+        setIsSuccess(true);
+        setIsError(false);
         navigate("/")
       } catch (err) {
         console.error(err);
+        setIsSuccess(false);
+        setIsError(true);
       }
     };
   
-   
   
-    
-    
 
   return (
     <div style={{ minHeight: "85vh"}} className='forms'>
       <div className="Info-container">
         <div className="contactForm">
-          <form >
+       
             <h3>SIGN UP</h3>
             <input
               type="email"
@@ -85,8 +95,17 @@ export default function SignUp() {
               <img src={googleIcon} alt="Google Icon" className="google-icon" />
               Continue with Google
             </button>
-           
-          </form>
+            {isSuccess && (
+              <div style={{ backgroundColor: "green", color: "white", padding: "10px", marginTop: "10px" }}>
+                Account created Successfully !
+              </div>
+            )}
+            {isError && (
+          <div style={{ backgroundColor: "red", color: "white", padding: "10px", marginTop: "10px" }}>
+            Sorry , SignUp failed!
+          </div>
+        )}
+         
         </div>
     </div>
   </div>
