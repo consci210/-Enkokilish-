@@ -1,40 +1,54 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
+import googleIcon from "../assets/google.png";
+import { auth, googleProvider } from "../config/firebase";
+import { createUserWithEmailAndPassword, signInWithPopup} from "firebase/auth";
+
+
 
 export default function SignUp() {
+  
     const navigate = useNavigate()
-    const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
+    
+      const signUp = async () => {
+        console.log(email , password )
         if (password !== confirmPassword) {
           alert("Passwords do not match!")
           throw Error("re-check passwords")
         }
-        alert("Registered successfully")
+        try {
+          await createUserWithEmailAndPassword(auth, email, password);  
+          
+        
+       } catch (err) {
+         console.error(err);
+       }
+     };
+
+     const signInWithGoogle = async () => {
+      try {
+        await signInWithPopup(auth, googleProvider);
         navigate("/")
-    }
+      } catch (err) {
+        console.error(err);
+      }
+    };
+  
+   
+  
+    
+    
 
   return (
     <div style={{ minHeight: "85vh"}} className='forms'>
       <div className="Info-container">
         <div className="contactForm">
-          <form
-            onSubmit={handleSubmit}
-          >
+          <form >
             <h3>SIGN UP</h3>
-            <input
-              type="text"
-              name="name"
-              placeholder='Enter Full Name e.g. John Doe' 
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-
             <input
               type="email"
               name="email"
@@ -65,8 +79,13 @@ export default function SignUp() {
             />
 
 
-            <button type="submit">SIGN UP</button>
+            <button onClick={signUp}>SIGN UP</button>
             <h4>Already a user?</h4> <Link to={"/login"} style={{textDecoration: "none"}} className='log-forms'>Log In</Link>
+            <button className="google-btn" onClick={signInWithGoogle} >
+              <img src={googleIcon} alt="Google Icon" className="google-icon" />
+              Continue with Google
+            </button>
+           
           </form>
         </div>
     </div>

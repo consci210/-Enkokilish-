@@ -839,3 +839,25 @@
   height: 85vh;
  }
 }
+
+
+/* login form */
+
+.google-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  left: 30% ;
+}
+
+.user{
+  width: 30px;
+  height: 30px;
+}
+.user-logo{
+  position: fixed;
+  right: 0;
+  top: 0;
+}
