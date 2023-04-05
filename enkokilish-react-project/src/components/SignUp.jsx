@@ -1,40 +1,64 @@
 import React, { useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
+import googleIcon from "../assets/google.png";
+import { auth, googleProvider } from "../config/firebase";
+import { createUserWithEmailAndPassword, signInWithPopup} from "firebase/auth";
+
 
 export default function SignUp() {
+  
+
+
     const navigate = useNavigate()
-    const [name, setName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
+    const [isSuccess, setIsSuccess] = useState(false);
+    const [isError, setIsError] = useState(false);
+    
 
-    const handleSubmit = (e) => {
-        e.preventDefault();
-        if (password !== confirmPassword) {
-          alert("Passwords do not match!")
-          throw Error("re-check passwords")
-        }
-        alert("Registered successfully")
+
+      // handles new account creation 
+        const signUp = async () => {
+          
+            if (password !== confirmPassword) {
+              alert("Passwords do not match!")
+              throw Error("re-check passwords")   
+          }
+          try {
+            await createUserWithEmailAndPassword(auth, email, password);  
+            setIsSuccess(true);
+            setIsError(false);
+            navigate("/");
+          } catch (err) {
+            console.error(err);
+            setIsSuccess(false);
+            setIsError(true);
+          }
+      };
+
+     // handles creating account with google 
+     const signInWithGoogle = async () => {
+      try {
+        await signInWithPopup(auth, googleProvider);
+        setIsSuccess(true);
+        setIsError(false);
         navigate("/")
-    }
+      } catch (err) {
+        console.error(err);
+        setIsSuccess(false);
+        setIsError(true);
+      }
+    };
+  
+  
 
   return (
     <div style={{ minHeight: "85vh"}} className='forms'>
       <div className="Info-container">
         <div className="contactForm">
-          <form
-            onSubmit={handleSubmit}
-          >
+       
             <h3>SIGN UP</h3>
-            <input
-              type="text"
-              name="name"
-              placeholder='Enter Full Name e.g. John Doe' 
-              value={name}
-              onChange={(e) => setName(e.target.value)}
-              required
-            />
-
             <input
               type="email"
               name="email"
@@ -65,9 +89,23 @@ export default function SignUp() {
             />
 
 
-            <button type="submit">SIGN UP</button>
+            <button onClick={signUp}>SIGN UP</button>
             <h4>Already a user?</h4> <Link to={"/login"} style={{textDecoration: "none"}} className='log-forms'>Log In</Link>
-          </form>
+            <button className="google-btn" onClick={signInWithGoogle} >
+              <img src={googleIcon} alt="Google Icon" className="google-icon" />
+              Continue with Google
+            </button>
+            {isSuccess && (
+              <div style={{ backgroundColor: "green", color: "white", padding: "10px", marginTop: "10px" }}>
+                Account created Successfully !
+              </div>
+            )}
+            {isError && (
+          <div style={{ backgroundColor: "red", color: "white", padding: "10px", marginTop: "10px" }}>
+            Sorry , SignUp failed!
+          </div>
+        )}
+         
         </div>
     </div>
   </div>

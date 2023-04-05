@@ -840,3 +840,30 @@
   height: 85vh;
  }
 }
+
+
+/* login form */
+
+.google-btn{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  position: relative;
+  left: 30% ;
+}
+
+.user{
+  width: 30px;
+  height: 30px;
+}
+.user-logo{
+  cursor: pointer;
+  right: 0;
+  top: 0;
+}
+.user-display{
+  color: chocolate;
+  padding:0 2rem ;
+  margin: 0 2rem;
+}
