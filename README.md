@@ -26,6 +26,8 @@ Randomly generated questions for each game
 Interactive UI and fun animations
 User-friendly and easy to navigate
 
+## Show your support if you like my project ⭐
+
 ## 🤝 Contribution Guidelines
 I welcome contributions to Enkokilish! If you'd like to make a contribution, please follow these guidelines:
 
